@@ -69,9 +69,7 @@ select distinct on (contents) *
 from packs;
 
 --7 Select the warehouse code and the number of the packs in each warehouse
-select code, count(warehouse)
-from packs
-group by code;
+select warehouse, count(warehouse)from packs where warehouse in (select code from warehouses) group by warehouse;
 
 --8 Select only those warehouses where the number of the packs is greater than 2
 select *
