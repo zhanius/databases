@@ -92,9 +92,10 @@ from dealer d
          CROSS JOIN client;
 
 --c. find all dealers along with client name, city, priority, sell number, date, and amount
-select c.id, c.name, c.dealer_id, c.city, c.priority
+select c.id, c.name, c.city, c.priority, s.id, s.date, s.amount
 from client c
-         left join dealer d on c.dealer_id = d.id;
+         left join dealer d on c.dealer_id = d.id
+         join sell s on d.id = s.dealer_id;
 
 --d. find the dealer and client who reside in the same city
 select *
